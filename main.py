@@ -30,7 +30,7 @@ def replyvideo(bot, update):
     r = requests.get('http://tinyurl.com/api-create.php?url=' + best.url)
     message = 'Scarica video da qua: '+ str(r.text)
     update.message.reply_text(message)
-    bot.send_video(best.url)
+    bot.send_video(video=best.url)
 
 
 def main():
