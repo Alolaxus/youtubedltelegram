@@ -33,7 +33,6 @@ def replyvideo(bot, update):
     update.message.reply_text(r.headers.get('content-type'))
 
 
-
 def main():
     updater = Updater(TOKEN)
     dp = updater.dispatcher
