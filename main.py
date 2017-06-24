@@ -22,9 +22,9 @@ def replyvideo(bot, update):
 
     video = pafy.new(update.message.text)
     best = video.getbest()
-    ''' r = requests.get('http://tinyurl.com/api-create.php?url=' + best.url)
-    message = 'Scarica video da qua: '+ str(r.text)'''
-    update.message.reply_text(best.url)
+    r = requests.get('http://tinyurl.com/api-create.php?url=' + best.url)
+    message = 'Scarica video da qua: '+ str(r.text)
+    update.message.reply_text(message)
 
 
 def main():
