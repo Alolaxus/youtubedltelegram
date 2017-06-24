@@ -18,7 +18,12 @@ def start(bot, update):
 
 
 def replyvideo(bot, update):
-    update.message.reply_text(update.message.text)
+
+    ydl_opts = {
+        'format': 'bestaudio/best'}
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([update.message.text])
+    update.message.reply_text(ydl)
 
 
 def main():
