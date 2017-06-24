@@ -13,6 +13,11 @@ import pafy
 
 TOKEN = os.environ.get('TOKEN')
 
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+
 def start(bot, update):
     update.message.reply_text('Ciao! Con questo bot puoi scaricare video da youtube! Basta copiare l\'indirizzo del video'
                               'e copiarlo qui. Dopo aver incollato e premuto invio il bot ti manderà il video da scaricare.')
