@@ -24,13 +24,13 @@ def start(bot, update):
 
 
 def replyvideo(bot, update):
-
+    chat_id = update.message.chat_id
     video = pafy.new(update.message.text)
     best = video.getbest()
     r = requests.get('http://tinyurl.com/api-create.php?url=' + best.url)
     message = 'Scarica video da qua: '+ str(r.text)
     update.message.reply_text(message)
-    bot.send_video(video=best.url)
+    bot.send_video(chat_id=chat_id, video=best.url)
 
 
 def main():
