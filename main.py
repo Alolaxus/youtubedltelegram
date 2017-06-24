@@ -1,4 +1,4 @@
-
+from __future__ import unicode_literals
 # -*- coding: utf-8 -*-
 
 import requests
@@ -8,7 +8,6 @@ from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, InputTextMessage
 import os
 from uuid import uuid4
 import logging
-from __future__ import unicode_literals
 import youtube_dl
 
 TOKEN = os.environ.get('TOKEN')
