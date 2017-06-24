@@ -9,6 +9,7 @@ import os
 from uuid import uuid4
 import logging
 import youtube_dl
+import pafy
 
 TOKEN = os.environ.get('TOKEN')
 
@@ -19,12 +20,11 @@ def start(bot, update):
 
 def replyvideo(bot, update):
 
-    ydl_opts = {
-        'format': 'bestaudio/best'}
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-
-        ydl.download([update.message.text])
-    update.message.reply_text(ydl.get_encoding())
+    video = pafy.new(update.message.text)
+    best = video.getbest()
+    r = requests.get(best.url)
+    message = 'Scarica video da qua: '+ str(r.text)
+    update.message.reply_text(message)
 
 
 def main():
